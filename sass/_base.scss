@@ -42,8 +42,5 @@ body {
 	// 8rem for the sidebar and for middle 8 columns we fix max width at 1140px/8 =142.5px or about 14rem
 	// minmax(6rem, 1fr) is to occupy the remaining space which they will shrink first when the window is getting smaller
 
-	& > * { //for testing
-		padding: 40px;
-		font-size: 3rem;
-	}
+	
 }
