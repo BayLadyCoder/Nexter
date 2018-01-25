@@ -19,7 +19,7 @@
 .feature {
 
 	float: left;
-	width: 33.3333%
+	width: 33.3333%;
 	margin-bottom: 6rem;
 
 
@@ -28,6 +28,7 @@
 		width: auto;
 		margin-bottom: 0;
 	}
+
 		display: grid;
 		grid-template-columns: min-content 1fr;
 		grid-row-gap: 1.5rem;
