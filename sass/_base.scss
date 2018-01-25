@@ -14,6 +14,14 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+
  
 *,
 *::before,
@@ -26,6 +34,10 @@ $font-display: 'Josefin Sans', sans-serif;
 html {
 	box-sizing: border-box;
 	font-size: 62.5%; //10px/16px = 62.5% --> 1rem = 10px
+
+	@media only screen and (max-width: $bp-largest) {
+		font-size: 50%; //8px;
+	}
 }
 
 body {
@@ -38,9 +50,19 @@ body {
 .container {
 	display: grid;
 	grid-template-rows: 80vh min-content 40vw repeat(3, min-content); // initiate the size of each rows
-	grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; 
+	grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) 
+	[center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; 
 	// 8rem for the sidebar and for middle 8 columns we fix max width at 1140px/8 =142.5px or about 14rem
 	// minmax(6rem, 1fr) is to occupy the remaining space which they will shrink first when the window is getting smaller
 
-	
+	@media only screen and (max-width: $bp-large) {
+		grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content); // initiate the size of each rows
+		grid-template-columns: [full-start] minmax(6rem, 1fr) 
+		[center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; 
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		grid-template-rows: 6rem calc(100vh - 6rem); // initiate the size of each rows
+		                  // calc(100vh - 6rem(sidebar on the top))
+	}
 }
